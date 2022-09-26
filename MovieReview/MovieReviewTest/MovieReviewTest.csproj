@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MovieReview\MovieReview.csproj" />
+  </ItemGroup>
+
 </Project>
