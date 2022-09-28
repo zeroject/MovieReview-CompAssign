@@ -1,10 +1,55 @@
 using MovieReview;
 using MovieReview.Entities;
+using MovieReview.Interface;
 
 namespace MovieReviewTest
 {
     public class UMovieReview
     {
+        [Theory]
+        [InlineData(1,4)]
+        [InlineData(12,5)]
+        public void TestGetNumberOfReviewsFromReviewer(int reviewID, int result)
+        {
+            //Arrange
+            IMovieReviewManager movieReviewManager;
+            movieReviewManager = new MovieReviewManager();
+
+            //Act
+            int actionResult = movieReviewManager.GetNumberOfReviewsFromReviewer(reviewID);
+
+            //Assert
+            Assert.True(actionResult == result);
+        }
+
+        //throw rounds 1
+        [Theory]
+        [InlineData(int.MaxValue, typeof(ArgumentException))]
+        [InlineData(0, typeof(ArgumentException))]
+        [InlineData(int.MinValue, typeof(ArgumentException))]
+        public void TestGetNumberOfReviewsFromReviewerThrows(int reviewID, Type expected)
+        {
+            //Arrange
+            IMovieReviewManager movieReviewManager;
+            movieReviewManager = new MovieReviewManager();
+
+            //Act && Assert
+
+            try 
+            {
+                movieReviewManager.GetNumberOfReviewsFromReviewer(13);
+            }
+            catch (Exception ex)
+            {
+                Assert.Equal(expected)
+            }
+                
+                
+
+        }
+
+
+
         [Theory]
         [InlineData(1, 3.75)]
         [InlineData(2, 3.25)]
