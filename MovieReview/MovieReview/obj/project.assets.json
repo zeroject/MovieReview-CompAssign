@@ -8,23 +8,23 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Magnus\\.nuget\\packages\\": {},
+    "C:\\Users\\abs\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Magnus\\Documents\\GitHub\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj",
+      "projectUniqueName": "D:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj",
       "projectName": "MovieReview",
-      "projectPath": "C:\\Users\\Magnus\\Documents\\GitHub\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj",
-      "packagesPath": "C:\\Users\\Magnus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Magnus\\Documents\\GitHub\\MovieReview-CompAssign\\MovieReview\\MovieReview\\obj\\",
+      "projectPath": "D:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj",
+      "packagesPath": "C:\\Users\\abs\\.nuget\\packages\\",
+      "outputPath": "D:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReview\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Magnus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\abs\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -33,7 +33,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
