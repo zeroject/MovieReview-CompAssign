@@ -4,9 +4,9 @@ namespace Data
 {
     public static class MockData
     {
-        public static IEnumerable<object[]> GetData()
+        public static List<object> GetData()
         {
-            var allData = new List<object[]>
+            var allData = new List<object>
             {
                 new object[] { new Review(1,  852327,  4, new DateTime(2005-10-30))},
                 new object[] { new Review(1,  205228,  4, new DateTime(2005-10-31))},

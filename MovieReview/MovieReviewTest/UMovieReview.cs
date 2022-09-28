@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic;
 using MovieReview;
 using MovieReview.Entities;
 using MovieReview.Interface;
@@ -8,8 +9,8 @@ namespace MovieReviewTest
     {
         // Test 1
         [Theory]
-        [InlineData(1,4)]
-        [InlineData(12,5)]
+        [InlineData(1, 4)]
+        [InlineData(12, 5)]
         public void TestGetNumberOfReviewsFromReviewer(int reviewID, int result)
         {
             //Arrange
@@ -111,22 +112,103 @@ namespace MovieReviewTest
             Assert.Equal(expected, amount);
         }
 
-        //Test 7 NOT DONE
+        //Test 7
         [Fact]
         public void TestGetMoviesWithHighestNumberOfTopRates()
         {
             //Arrange
+            int d = 0;
             IMovieReviewManager movieReviewManager;
-            movieReviewManager= new MovieReviewManager();
-            List<int> movieTopList = new List<int> { 852327, 94150, 8309, 1356096 };
-
+            movieReviewManager = new MovieReviewManager();
+            List<int> movieTopList = new List<int> { 8309, 94150, 852327, 1356096 };
             //act
-
+            List<int> result = movieReviewManager.GetMoviesWithHighestNumberOfTopRates();
+            foreach (int i in result)
+            {
+                if (i.Equals(movieTopList[i]))
+                {
+                    d++;
+                }
+            }
+            Assert.Equal(4, d);
+        }
+        //Test 8
+        [Fact]
+        public void TestGetMostProductiveReviewers()
+        {
+            //Arrange
+            IMovieReviewManager movieReviewManager;
+            movieReviewManager = new MovieReviewManager();
+            List<int> reviewerTopList = new List<int> { 12 };
+            //act
+            List<int> result = movieReviewManager.GetMostProductiveReviewers();
+            foreach (int i in result)
+            {
+                Assert.Equal(reviewerTopList[i], i);
+            }
+        }
+        //Test 9
+        [Theory]
+        [InlineData(4)]
+        [InlineData(2)]
+        [InlineData(6)]
+        [InlineData(3)]
+        public void TestGetTopRatedMovies(int amount)
+        {
+            //Arrange
+            IMovieReviewManager movieReviewManager;
+            movieReviewManager = new MovieReviewManager();
+            //Movies sorted efter højest avg rating
+            List<int> movieTopList = new List<int> 
+            {1356096,2038901,1874239,
+             1465002,577103,1564770 ,
+             2643933,1894937,2281128,
+             1792480,2156834,205228 ,
+             852327,8309,94150      ,
+             1251664,87062,2111120  ,
+             1054564,2503089,1763064,
+             1555901,1993625        };
+            //act
+            List<int> expected = movieTopList.GetRange(0, amount);
+            List<int> result = movieReviewManager.GetTopRatedMovies(amount);
+            foreach (int i in result)
+            {
+                Assert.Equal(expected[i], i);
+            }
+        }
+        //Test 10
+        [Fact]
+        public void TestGetTopMoviesByReviewer()
+        {
+            //Arrange
+            IMovieReviewManager movieReviewManager;
+            movieReviewManager = new MovieReviewManager();
+            List<int> movieTopList = new List<int> {1564770, 87062, 205228, 1251664};
+            //act
+            List<int> result = movieReviewManager.GetTopMoviesByReviewer(7);
+            foreach (int i in result)
+            {
+                Assert.Equal(movieTopList[i], i);
+            }
+        }
+        //Test 11
+        [Fact]
+        public void TestGetReviewersByMovie()
+        {
+            //Arrange
+            IMovieReviewManager movieReviewManager;
+            movieReviewManager = new MovieReviewManager();
+            List<int> movieTopList = new List<int> {12,5,4,3,1,6};
+            //act
+            List<int> result = movieReviewManager.GetReviewersByMovie(94150);
+            foreach (int i in result)
+            {
+                Assert.Equal(movieTopList[i], i);
+            }
         }
 
-
         /// <summary>
-        /// Error Tests
+        /// ---------Error Tests----------
         /// </summary>
 
         // Test 1.1
