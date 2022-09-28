@@ -40,12 +40,47 @@ namespace MovieReviewTest
             //Assert
             Assert.Equal(expected, averageData);
         }
+        [Theory]
+        [InlineData(1, 4, 2)]
+        [InlineData(5, 5, 2)]
+        [InlineData(7, 1, 0)]
+        public void TestGetNumberOfRatesByReviewer(int reviewer, int rate, int expected)
+        {
+            //Arrange
+            IMovieReviewManager movieReviewManager;
+            movieReviewManager = new MovieReviewManager();
+
+            //act
+            int amount = movieReviewManager.GetNumberOfRatesByReviewer(reviewer, rate);
+
+            //Assert
+            Assert.Equal(expected, amount);
+        }
+
+
+        
+
+        [Theory]
+        [InlineData(852327, 7)]
+        [InlineData(205228, 8)]
+        public void TestGetNumberOfReviews(int movie, int expected)
+        {
+            //Arrange
+            IMovieReviewManager movieReviewManager;
+            movieReviewManager = new MovieReviewManager();
+
+            //act
+            int amount = movieReviewManager.GetNumberOfReviews(movie);
+
+            //assert
+            Assert.Equal(expected, amount);
+        }
 
         [Theory]
         [InlineData(852327, 3.57)]
         [InlineData(205228, 3.75)]
-        [InlineData(94150,  3.25)]
-        [InlineData(8309,   3.57)]
+        [InlineData(94150, 3.25)]
+        [InlineData(8309, 3.57)]
         public void TestGetAverageRateOfMovie(int movie, double expected)
         {
             //Arrange
@@ -57,6 +92,36 @@ namespace MovieReviewTest
             //Assert
             Assert.Equal(expected, averageData);
         }
+        [Theory]
+        [InlineData(205228, 4, 4)]
+        [InlineData(1555901, 5, 0)]
+        public void TestGetNumberOfRates(int movie, int rate, int expected)
+        {
+            //Arrange
+            IMovieReviewManager movieReviewManager;
+            movieReviewManager = new MovieReviewManager();
+
+            //act
+            int amount = movieReviewManager.GetNumberOfRates(movie, rate);
+
+            //assert
+            Assert.Equal(expected, amount);
+        }
+
+        //Inactive for now, 7.1
+        [Fact]
+        public void TestGetMoviesWithHighestNumberOfTopRates()
+        {
+            //Arrange
+            IMovieReviewManager movieReviewManager;
+            movieReviewManager= new MovieReviewManager();
+            List<int> movieTopList = new List<int> { 852327, 94150, 8309, 1356096 };
+
+            //act
+
+        }
+
+
         //throw rounds 1
         [Theory]
         [InlineData(int.MaxValue, typeof(ArgumentException))]
