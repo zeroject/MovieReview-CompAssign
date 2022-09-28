@@ -22,33 +22,7 @@ namespace MovieReviewTest
             Assert.True(actionResult == result);
         }
 
-        //throw rounds 1
-        [Theory]
-        [InlineData(int.MaxValue, typeof(ArgumentException))]
-        [InlineData(0, typeof(ArgumentException))]
-        [InlineData(int.MinValue, typeof(ArgumentException))]
-        public void TestGetNumberOfReviewsFromReviewerThrows(int reviewID, Type expected)
-        {
-            //Arrange
-            IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager();
-
-            //Act && Assert
-
-            try 
-            {
-                movieReviewManager.GetNumberOfReviewsFromReviewer(13);
-            }
-            catch (Exception ex)
-            {
-                Assert.Equal(expected)
-            }
-                
-                
-
-        }
-
-
+       
 
         [Theory]
         [InlineData(1, 3.75)]
@@ -82,6 +56,28 @@ namespace MovieReviewTest
 
             //Assert
             Assert.Equal(expected, averageData);
+        }
+        //throw rounds 1
+        [Theory]
+        [InlineData(int.MaxValue, typeof(ArgumentException))]
+        [InlineData(0, typeof(ArgumentException))]
+        [InlineData(int.MinValue, typeof(ArgumentException))]
+        public void TestGetNumberOfReviewsFromReviewerThrows(int reviewID, Type expected)
+        {
+            //Arrange
+            IMovieReviewManager movieReviewManager;
+            movieReviewManager = new MovieReviewManager();
+
+            //Act && Assert
+
+            try
+            {
+                movieReviewManager.GetNumberOfReviewsFromReviewer(reviewID);
+            }
+            catch (Exception e)
+            {
+                Assert.Equal(expected, e.GetType());
+            }
         }
     }
 }
