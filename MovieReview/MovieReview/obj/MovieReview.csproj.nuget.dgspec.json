@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SKOLE\\moviereview\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj": {}
+    "F:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj": {}
   },
   "projects": {
-    "D:\\SKOLE\\moviereview\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj": {
+    "F:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SKOLE\\moviereview\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj",
+        "projectUniqueName": "F:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj",
         "projectName": "MovieReview",
-        "projectPath": "D:\\SKOLE\\moviereview\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj",
-        "packagesPath": "C:\\Users\\caspe\\.nuget\\packages\\",
-        "outputPath": "D:\\SKOLE\\moviereview\\MovieReview-CompAssign\\MovieReview\\MovieReview\\obj\\",
+        "projectPath": "F:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj",
+        "packagesPath": "C:\\Users\\abs\\.nuget\\packages\\",
+        "outputPath": "F:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReview\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\caspe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\abs\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

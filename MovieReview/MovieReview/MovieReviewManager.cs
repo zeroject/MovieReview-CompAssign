@@ -4,6 +4,18 @@ namespace MovieReview
 {
     public class MovieReviewManager : IMovieReviewManager
     {
+
+        private List<object> allData;
+
+        public MovieReviewManager(List<object> data)
+        {
+            if (data == null)
+            {
+                throw new NullReferenceException("Missing repository");
+            }
+            allData = data;
+        }
+
         public int GetNumberOfReviewsFromReviewer(int reviewer)
         {
             throw new NotImplementedException();

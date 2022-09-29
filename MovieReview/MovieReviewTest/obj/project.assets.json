@@ -6144,23 +6144,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\caspe\\.nuget\\packages\\": {},
+    "C:\\Users\\abs\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SKOLE\\moviereview\\MovieReview-CompAssign\\MovieReview\\MovieReviewTest\\MovieReviewTest.csproj",
+      "projectUniqueName": "F:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReviewTest\\MovieReviewTest.csproj",
       "projectName": "MovieReviewTest",
-      "projectPath": "D:\\SKOLE\\moviereview\\MovieReview-CompAssign\\MovieReview\\MovieReviewTest\\MovieReviewTest.csproj",
-      "packagesPath": "C:\\Users\\caspe\\.nuget\\packages\\",
-      "outputPath": "D:\\SKOLE\\moviereview\\MovieReview-CompAssign\\MovieReview\\MovieReviewTest\\obj\\",
+      "projectPath": "F:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReviewTest\\MovieReviewTest.csproj",
+      "packagesPath": "C:\\Users\\abs\\.nuget\\packages\\",
+      "outputPath": "F:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReviewTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\caspe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\abs\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6175,11 +6175,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\SKOLE\\moviereview\\MovieReview-CompAssign\\MovieReview\\Data\\Data.csproj": {
-              "projectPath": "D:\\SKOLE\\moviereview\\MovieReview-CompAssign\\MovieReview\\Data\\Data.csproj"
+            "F:\\GitShit\\MovieReview-CompAssign\\MovieReview\\Data\\Data.csproj": {
+              "projectPath": "F:\\GitShit\\MovieReview-CompAssign\\MovieReview\\Data\\Data.csproj"
             },
-            "D:\\SKOLE\\moviereview\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj": {
-              "projectPath": "D:\\SKOLE\\moviereview\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj"
+            "F:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj": {
+              "projectPath": "F:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj"
             }
           }
         }

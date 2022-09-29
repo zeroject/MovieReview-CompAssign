@@ -1,0 +1,12 @@
+F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\bin\Debug\net6.0\MovieReview.deps.json
+F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\bin\Debug\net6.0\MovieReview.dll
+F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\bin\Debug\net6.0\MovieReview.pdb
+F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\MovieReview.csproj.AssemblyReference.cache
+F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\MovieReview.GeneratedMSBuildEditorConfig.editorconfig
+F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\MovieReview.AssemblyInfoInputs.cache
+F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\MovieReview.AssemblyInfo.cs
+F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\MovieReview.csproj.CoreCompileInputs.cache
+F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\MovieReview.dll
+F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\refint\MovieReview.dll
+F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\MovieReview.pdb
+F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\ref\MovieReview.dll

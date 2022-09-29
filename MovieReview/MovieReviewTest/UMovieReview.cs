@@ -2,6 +2,7 @@ using Microsoft.VisualBasic;
 using MovieReview;
 using MovieReview.Entities;
 using MovieReview.Interface;
+using Xunit.Sdk;
 
 namespace MovieReviewTest
 {
@@ -15,7 +16,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager();
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
 
             //Act
             int actionResult = movieReviewManager.GetNumberOfReviewsFromReviewer(reviewID);
@@ -33,7 +34,7 @@ namespace MovieReviewTest
         public void TestGetAverageRateFromReviewer(int reviewer, double expected)
         {
             //Arrange
-            var movieReviewManager = new MovieReviewManager();
+            var movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
 
             //Act
             double averageData = movieReviewManager.GetAverageRateFromReviewer(reviewer);
@@ -51,7 +52,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager();
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
 
             //act
             int amount = movieReviewManager.GetNumberOfRatesByReviewer(reviewer, rate);
@@ -68,7 +69,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager();
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
 
             //act
             int amount = movieReviewManager.GetNumberOfReviews(movie);
@@ -86,7 +87,7 @@ namespace MovieReviewTest
         public void TestGetAverageRateOfMovie(int movie, double expected)
         {
             //Arrange
-            var movieReviewManager = new MovieReviewManager();
+            var movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
 
             //Act
             double averageData = movieReviewManager.GetAverageRateOfMovie(movie);
@@ -103,7 +104,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager();
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
 
             //act
             int amount = movieReviewManager.GetNumberOfRates(movie, rate);
@@ -119,7 +120,7 @@ namespace MovieReviewTest
             //Arrange
             int d = 0;
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager();
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
             List<int> movieTopList = new List<int> { 8309, 94150, 852327, 1356096 };
             //act
             List<int> result = movieReviewManager.GetMoviesWithHighestNumberOfTopRates();
@@ -138,7 +139,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager();
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
             List<int> reviewerTopList = new List<int> { 12 };
             //act
             List<int> result = movieReviewManager.GetMostProductiveReviewers();
@@ -157,7 +158,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager();
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
             //Movies sorted efter højest avg rating
             List<int> movieTopList = new List<int> 
             {1356096,2038901,1874239,
@@ -182,7 +183,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager();
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
             List<int> movieTopList = new List<int> {1564770, 87062, 205228, 1251664};
             //act
             List<int> result = movieReviewManager.GetTopMoviesByReviewer(7);
@@ -197,7 +198,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager();
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
             List<int> movieTopList = new List<int> {12,5,4,3,1,6};
             //act
             List<int> result = movieReviewManager.GetReviewersByMovie(94150);
@@ -220,7 +221,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager();
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
 
             //Act && Assert
 
@@ -233,5 +234,212 @@ namespace MovieReviewTest
                 Assert.Equal(expected, e.GetType());
             }
         }
+
+        // Test 2.1
+        [Theory]
+        [InlineData(-1, typeof(ArgumentException))]
+        [InlineData(null, typeof(NullException))]
+        [InlineData(13, typeof(ArgumentException))]
+        public void TestGetAverageRateFromReviewerThrows(int reviewID, Type expected)
+        {
+            //Arrange
+            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+
+            try
+            {
+                //Act
+                mm.GetAverageRateFromReviewer(reviewID);
+            }
+            catch (Exception e)
+            {
+                //Assert
+                Assert.Equal(expected, e.GetType());
+            }
+
+        }
+
+        // Test 3.1
+        [Theory]
+        [InlineData(-1, 2, typeof(ArgumentException))]
+        [InlineData(null, 2, typeof(NullException))]
+        [InlineData(13, 2, typeof(ArgumentException))]
+        [InlineData(11, -1, typeof(ArgumentException))]
+        [InlineData(11, int.MaxValue, typeof(ArgumentException))]
+        public void TestGetNumberOfRatesByReviewerThrows(int reviewID, int rate, Type expected)
+        {
+            //Arrange
+            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+
+            try
+            {
+                //Act
+                mm.GetNumberOfRatesByReviewer(reviewID, rate);
+            }
+            catch (Exception e)
+            {
+                //Assert
+                Assert.Equal(expected, e.GetType());
+            }
+
+        }
+
+        // Test 4.1
+        [Theory]
+        [InlineData(-1, typeof(ArgumentException))]
+        [InlineData(null, typeof(NullException))]
+        [InlineData(int.MaxValue, typeof(ArgumentException))]
+        public void TestGetNumberOfReviewsThrows(int movieID, Type expected)
+        {
+            //Arrange
+            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+
+            try
+            {
+                //Act
+                mm.GetNumberOfReviews(movieID);
+            }
+            catch (Exception e)
+            {
+                //Assert
+                Assert.Equal(expected, e.GetType());
+            }
+
+        }
+
+        // Test 5.1
+        [Theory]
+        [InlineData(-1, typeof(ArgumentException))]
+        [InlineData(null, typeof(NullException))]
+        [InlineData(int.MaxValue, typeof(ArgumentException))]
+        public void TestGetAverageRateOfMovieThrows(int movieID, Type expected)
+        {
+            //Arrange
+            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+
+            try
+            {
+                //Act
+                mm.GetAverageRateOfMovie(movieID);
+            }
+            catch (Exception e)
+            {
+                //Assert
+                Assert.Equal(expected, e.GetType());
+            }
+
+        }
+
+        // Test 6.1
+        [Theory]
+        [InlineData(852327, -1, typeof(ArgumentException))]
+        [InlineData(852327, 6, typeof(ArgumentException))]
+        [InlineData(852327, null, typeof(NullException))]
+        public void TestGetNumberOfRatesThrows(int movieID, int rating, Type expected)
+        {
+            //Arrange
+            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+
+            try
+            {
+                //Act
+                mm.GetNumberOfRates(movieID, rating);
+            }
+            catch (Exception e)
+            {
+                //Assert
+                Assert.Equal(expected, e.GetType());
+            }
+
+        }
+
+        [Theory]
+        [InlineData(-1, typeof(ArgumentException))]
+        [InlineData(null, typeof(NullException))]
+        [InlineData(int.MaxValue, typeof(ArgumentException))]
+        // Test 9.1
+        public void TestGetTopRatedMoviesThrowsInvalidInput(int amount, Type expected)
+        {
+            //Arrange
+            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+
+            try
+            {
+                //Act
+                mm.GetTopRatedMovies(amount);
+            }
+            catch (Exception e)
+            {
+                //Assert
+                Assert.Equal(expected, e.GetType());
+            }
+        }
+
+        // Test 10.1
+        [Theory]
+        [InlineData(-1, typeof(ArgumentException))]
+        [InlineData(null, typeof(NullException))]
+        [InlineData(13, typeof(ArgumentException))]
+        public void TestGetTopMoviesByReviewerThrows(int reviewID, Type expected)
+        {
+            //Arrange
+            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+
+            try
+            {
+                //Act
+                mm.GetTopMoviesByReviewer(reviewID);
+            }
+            catch (Exception e)
+            {
+                //Assert
+                Assert.Equal(expected, e.GetType());
+            }
+
+        }
+
+        // Test 11.1
+        [Theory]
+        [InlineData(-1, typeof(ArgumentException))]
+        [InlineData(null, typeof(NullException))]
+        [InlineData(int.MaxValue, typeof(ArgumentException))]
+        public void TestGetReviewersByMovieThrows(int movieID, Type expected)
+        {
+            //Arrange
+            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+
+            try
+            {
+                //Act
+                mm.GetReviewersByMovie(movieID);
+            }
+            catch (Exception e)
+            {
+                //Assert
+                Assert.Equal(expected, e.GetType());
+            }
+
+        }
+
+        // Test 12
+        [Theory]
+        [InlineData(typeof(NullReferenceException))]
+        public void TestMovieReviewManagerNullConstructor(Type expected)
+        {
+            //Arrange
+            MovieReviewManager mm;
+
+            try
+            {
+                //Act
+                mm = new MovieReviewManager(null);
+            }
+            catch (Exception e)
+            {
+                //Assert
+                Assert.Equal(expected, e.GetType());
+            }
+
+        }
+
     }
 }
