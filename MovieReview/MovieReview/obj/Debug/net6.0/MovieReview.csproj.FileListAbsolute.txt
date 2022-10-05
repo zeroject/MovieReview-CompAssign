@@ -10,3 +10,15 @@ F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\Movie
 F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\refint\MovieReview.dll
 F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\MovieReview.pdb
 F:\GitShit\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\ref\MovieReview.dll
+C:\Users\kaspe\Desktop\sims\MovieReview-CompAssign\MovieReview\MovieReview\bin\Debug\net6.0\MovieReview.deps.json
+C:\Users\kaspe\Desktop\sims\MovieReview-CompAssign\MovieReview\MovieReview\bin\Debug\net6.0\MovieReview.dll
+C:\Users\kaspe\Desktop\sims\MovieReview-CompAssign\MovieReview\MovieReview\bin\Debug\net6.0\MovieReview.pdb
+C:\Users\kaspe\Desktop\sims\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\MovieReview.csproj.AssemblyReference.cache
+C:\Users\kaspe\Desktop\sims\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\MovieReview.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kaspe\Desktop\sims\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\MovieReview.AssemblyInfoInputs.cache
+C:\Users\kaspe\Desktop\sims\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\MovieReview.AssemblyInfo.cs
+C:\Users\kaspe\Desktop\sims\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\MovieReview.csproj.CoreCompileInputs.cache
+C:\Users\kaspe\Desktop\sims\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\MovieReview.dll
+C:\Users\kaspe\Desktop\sims\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\refint\MovieReview.dll
+C:\Users\kaspe\Desktop\sims\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\MovieReview.pdb
+C:\Users\kaspe\Desktop\sims\MovieReview-CompAssign\MovieReview\MovieReview\obj\Debug\net6.0\ref\MovieReview.dll

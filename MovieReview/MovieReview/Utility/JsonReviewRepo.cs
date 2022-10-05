@@ -9,16 +9,15 @@ namespace MovieReview.Utility
     {
         public Review[] reviews { get; private set; }
 
-        public Review[] Reviews => throw new NotImplementedException();
-
         private TextReader _reader;
 
         public JsonReviewRepo(TextReader reader)
         {
             _reader = reader;
+            reviews =  GetAllReviews();
         }
 
-        public Review[] GetAllReviews()
+        private Review[] GetAllReviews()
         {
             List<Review> itemList = new List<Review>();
             using (JsonTextReader reader = new JsonTextReader(_reader))

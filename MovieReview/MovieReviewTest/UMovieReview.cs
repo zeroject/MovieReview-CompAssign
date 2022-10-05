@@ -2,6 +2,7 @@ using Microsoft.VisualBasic;
 using MovieReview;
 using MovieReview.Entities;
 using MovieReview.Interface;
+using MovieReview.Utility;
 using Xunit.Sdk;
 
 namespace MovieReviewTest
@@ -439,6 +440,35 @@ namespace MovieReviewTest
                 Assert.Equal(expected, e.GetType());
             }
 
+        }
+
+        [Fact]
+        public void TestJsonReviewRepo()
+        {
+            //Arrange
+            JsonReviewRepo repo;
+            repo = new JsonReviewRepo(new StreamReader("C:\\Users\\kaspe\\Desktop\\sims\\MovieReview-CompAssign\\MovieReview\\MovieReview\\ratings.json"));
+            Review review1 = new Review();
+            Review review2 = new Review();
+
+            //Act
+            // Reviewer: 1, Movie: 1488844, Grade: 3, Date: '2005-09-06' 
+            review1.reviewer = 1;
+            review1.movie = 1488844;
+            review1.grade = 3;
+            review1.reviewDate = new DateTime(2005, 9, 6);
+
+            // Reviewer:999, Movie:1559566, Grade:2, Date:'2005-09-26
+            review2.reviewer = 999;
+            review2.movie = 1559566;
+            review2.grade = 2;
+            review2.reviewDate = new DateTime(2005, 9, 26);
+
+            //Assert
+            Assert.True(review1 == repo.reviews[1]);
+            Assert.True(review2 == repo.reviews[5009441]);
+            Console.Write("expected 1: " + repo.reviews[1].reviewer);
+            
         }
 
     }
