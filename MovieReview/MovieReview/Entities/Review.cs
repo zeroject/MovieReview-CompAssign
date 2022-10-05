@@ -11,17 +11,9 @@ namespace MovieReview.Entities
     /// </summary>
     public class Review
     {
-        public int reviewer;
-        public int movie;
-        public int grade;
-        public DateTime reviewDate;
-
-        public Review(int reviewer, int movie, int grade, DateTime reviewDate)
-        {
-            this.reviewer = reviewer;
-            this.movie = movie;
-            this.grade = grade;
-            this.reviewDate = reviewDate;
-        }
+        public int reviewer { get; set; }
+        public int movie { get; set; }
+        public int grade { get; set; }
+        public DateTime reviewDate { get; set; }
     }
 }

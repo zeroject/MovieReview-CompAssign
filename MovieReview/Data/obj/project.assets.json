@@ -2,9 +2,25 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Newtonsoft.Json/13.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MovieReview/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
         "compile": {
           "bin/placeholder/MovieReview.dll": {}
         },
@@ -15,6 +31,33 @@
     }
   },
   "libraries": {
+    "Newtonsoft.Json/13.0.1": {
+      "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "MovieReview/1.0.0": {
       "type": "project",
       "path": "../MovieReview/MovieReview.csproj",
@@ -27,23 +70,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\abs\\.nuget\\packages\\": {},
+    "C:\\Users\\kaspe\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitShit\\MovieReview-CompAssign\\MovieReview\\Data\\Data.csproj",
+      "projectUniqueName": "C:\\Users\\kaspe\\Desktop\\sims\\MovieReview-CompAssign\\MovieReview\\Data\\Data.csproj",
       "projectName": "Data",
-      "projectPath": "D:\\GitShit\\MovieReview-CompAssign\\MovieReview\\Data\\Data.csproj",
-      "packagesPath": "C:\\Users\\abs\\.nuget\\packages\\",
-      "outputPath": "D:\\GitShit\\MovieReview-CompAssign\\MovieReview\\Data\\obj\\",
+      "projectPath": "C:\\Users\\kaspe\\Desktop\\sims\\MovieReview-CompAssign\\MovieReview\\Data\\Data.csproj",
+      "packagesPath": "C:\\Users\\kaspe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kaspe\\Desktop\\sims\\MovieReview-CompAssign\\MovieReview\\Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\abs\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kaspe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -58,8 +101,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj": {
-              "projectPath": "D:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj"
+            "C:\\Users\\kaspe\\Desktop\\sims\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj": {
+              "projectPath": "C:\\Users\\kaspe\\Desktop\\sims\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj"
             }
           }
         }

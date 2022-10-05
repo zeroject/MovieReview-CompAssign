@@ -52,23 +52,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\abs\\.nuget\\packages\\": {},
+    "C:\\Users\\kaspe\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj",
+      "projectUniqueName": "C:\\Users\\kaspe\\Desktop\\sims\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj",
       "projectName": "MovieReview",
-      "projectPath": "D:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj",
-      "packagesPath": "C:\\Users\\abs\\.nuget\\packages\\",
-      "outputPath": "D:\\GitShit\\MovieReview-CompAssign\\MovieReview\\MovieReview\\obj\\",
+      "projectPath": "C:\\Users\\kaspe\\Desktop\\sims\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj",
+      "packagesPath": "C:\\Users\\kaspe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kaspe\\Desktop\\sims\\MovieReview-CompAssign\\MovieReview\\MovieReview\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\abs\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kaspe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
