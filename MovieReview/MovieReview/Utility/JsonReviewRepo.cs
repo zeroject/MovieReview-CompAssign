@@ -11,6 +11,11 @@ namespace MovieReview.Utility
 
         private TextReader _reader;
 
+
+        /// <summary>
+        /// it needs a streamReader with proper file location of a Json file
+        /// </summary>
+        /// <param name="reader"></param>
         public JsonReviewRepo(TextReader reader)
         {
             _reader = reader;
