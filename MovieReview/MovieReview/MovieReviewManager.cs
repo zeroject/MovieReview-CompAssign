@@ -16,7 +16,7 @@ namespace MovieReview
                 throw new NullReferenceException("Missing repository");
             }
             allData = data;
-            JsonReviewRepo json = new JsonReviewRepo();
+            JsonReviewRepo json = new JsonReviewRepo("C:/Users/caspe/Downloads/ratings.json");
             allData = json.reviews;
         }
 
