@@ -447,7 +447,9 @@ namespace MovieReviewTest
         {
             //Arrange
             JsonReviewRepo repo;
-            repo = new JsonReviewRepo(new StreamReader("C:\\Users\\kaspe\\Desktop\\sims\\MovieReview-CompAssign\\MovieReview\\MovieReview\\ratings.json"));
+
+            // remember to get proper file path. indepent from each user when testing.
+            repo = new JsonReviewRepo("C:\\Users\\kaspe\\Desktop\\sims\\MovieReview-CompAssign\\MovieReview\\MovieReview\\ratings.json");
             Review review1 = new Review();
             Review review2 = new Review();
 
@@ -465,6 +467,7 @@ namespace MovieReviewTest
             review2.reviewDate = new DateTime(2005, 9, 26);
 
             //Assert
+            // first index of array is 0, last index of array is 5009438
             Assert.True(review1.reviewer == repo.reviews[0].reviewer);
             Assert.True(review1.movie == repo.reviews[0].movie);
             Assert.True(review1.grade == repo.reviews[0].grade);

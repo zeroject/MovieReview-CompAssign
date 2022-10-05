@@ -16,9 +16,9 @@ namespace MovieReview.Utility
         /// it needs a streamReader with proper file location of a Json file
         /// </summary>
         /// <param name="reader"></param>
-        public JsonReviewRepo(TextReader reader)
+        public JsonReviewRepo(String fileLocation)
         {
-            _reader = reader;
+            _reader = new StreamReader(fileLocation);
             reviews =  GetAllReviews();
         }
 
