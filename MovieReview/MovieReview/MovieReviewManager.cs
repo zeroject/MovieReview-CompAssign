@@ -88,29 +88,89 @@ namespace MovieReview
 
         public List<int> GetMoviesWithHighestNumberOfTopRates()
         {
-            List<int> movies = new List<int>();
             List<Review> sortedList = allData.OrderBy(o => o.grade).ToList();
             Dictionary<int, int> rateMap = new Dictionary<int, int>();
+            foreach (Review item in sortedList)
+            {
+                if (item.grade == 5 && !rateMap.ContainsKey(item.movie))
+                {
+                    rateMap.Add(item.movie, 1);
+                } else if (item.grade == 5)
+                {
+                    rateMap[item.movie]++;
+                }
+            }
+            rateMap.OrderBy(o => o.Value);
+            return rateMap.Select(o => o.Key).ToList();
         }
 
         public List<int> GetMostProductiveReviewers()
         {
-            throw new NotImplementedException();
+            Dictionary<int, int> rateMap = new Dictionary<int, int>();
+            foreach (Review item in allData)
+            {
+                if (!rateMap.ContainsKey(item.reviewer))
+                {
+                    rateMap.Add(item.reviewer, 1);
+                }
+                else
+                {
+                    rateMap[item.reviewer]++;
+                }
+            }
+            rateMap.OrderBy(o => o.Value);
+            return rateMap.Select(o => o.Key).ToList();
         }
 
         public List<int> GetTopRatedMovies(int amount)
         {
-            throw new NotImplementedException();
+            List<int> temp = new List<int>();
+            List<Review> sortedList = allData.OrderBy(o => o.grade).ToList();
+            Dictionary<int, int> rateMap = new Dictionary<int, int>();
+            foreach (Review item in sortedList)
+            {
+                if (item.grade == 5 && !rateMap.ContainsKey(item.movie))
+                {
+                    rateMap.Add(item.movie, 1);
+                }
+                else if (item.grade == 5)
+                {
+                    rateMap[item.movie]++;
+                }
+            }
+            rateMap.OrderBy(o => o.Value);
+            temp = rateMap.Select(o => o.Key).ToList();
+            return temp.GetRange(0, amount);
         }
 
         public List<int> GetTopMoviesByReviewer(int reviewer)
         {
-            throw new NotImplementedException();
+            List<Review> sortedList = allData.OrderBy(o => o.grade).ToList();
+            Dictionary<int, int> rateMap = new Dictionary<int, int>();
+            foreach (Review item in sortedList)
+            {
+                if (item.reviewer == reviewer)
+                {
+                    rateMap.Add(item.movie, item.grade);
+                }
+            }
+            rateMap.OrderBy(o => o.Value);
+            return rateMap.Select(o => o.Key).ToList();
         }
 
         public List<int> GetReviewersByMovie(int movie)
         {
-            throw new NotImplementedException();
+            List<Review> sortedList = allData.OrderBy(o => o.grade).ToList();
+            Dictionary<int, int> rateMap = new Dictionary<int, int>();
+            foreach (Review item in sortedList)
+            {
+                if (item.movie == movie)
+                {
+                    rateMap.Add(item.reviewer, item.grade);
+                }
+            }
+            rateMap.OrderBy(o => o.Value);
+            return rateMap.Select(o => o.Key).ToList();
         }
     }
 }
