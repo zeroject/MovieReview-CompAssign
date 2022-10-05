@@ -1,5 +1,6 @@
 ﻿using MovieReview.Entities;
 using MovieReview.Interface;
+using MovieReview.Utility;
 
 namespace MovieReview
 {
@@ -15,6 +16,8 @@ namespace MovieReview
                 throw new NullReferenceException("Missing repository");
             }
             allData = data;
+            JsonReviewRepo json = new JsonReviewRepo();
+            allData = json.reviews;
         }
 
         public int GetNumberOfReviewsFromReviewer(int reviewer)
