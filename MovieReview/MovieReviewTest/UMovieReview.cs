@@ -9,6 +9,8 @@ namespace MovieReviewTest
 {
     public class UMovieReview
     {
+        public static JsonReviewRepo json = new JsonReviewRepo("C:/Users/caspe/Downloads/ratings.json");
+
         // Test 1
         [Theory]
         [InlineData(1, 4)]
@@ -17,7 +19,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
+            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
 
             //Act
             int actionResult = movieReviewManager.GetNumberOfReviewsFromReviewer(reviewID);
@@ -35,7 +37,7 @@ namespace MovieReviewTest
         public void TestGetAverageRateFromReviewer(int reviewer, double expected)
         {
             //Arrange
-            var movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
+            var movieReviewManager = new MovieReviewManager(json.reviews.ToList());
 
             //Act
             double averageData = movieReviewManager.GetAverageRateFromReviewer(reviewer);
@@ -53,7 +55,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
+            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
 
             //act
             int amount = movieReviewManager.GetNumberOfRatesByReviewer(reviewer, rate);
@@ -70,7 +72,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
+            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
 
             //act
             int amount = movieReviewManager.GetNumberOfReviews(movie);
@@ -88,7 +90,7 @@ namespace MovieReviewTest
         public void TestGetAverageRateOfMovie(int movie, double expected)
         {
             //Arrange
-            var movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
+            var movieReviewManager = new MovieReviewManager(json.reviews.ToList());
 
             //Act
             double averageData = movieReviewManager.GetAverageRateOfMovie(movie);
@@ -105,7 +107,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
+            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
 
             //act
             int amount = movieReviewManager.GetNumberOfRates(movie, rate);
@@ -121,7 +123,7 @@ namespace MovieReviewTest
             //Arrange
             int d = 0;
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
+            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
             List<int> movieTopList = new List<int> { 8309, 94150, 852327, 1356096 };
             //act
             List<int> result = movieReviewManager.GetMoviesWithHighestNumberOfTopRates();
@@ -140,7 +142,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
+            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
             List<int> reviewerTopList = new List<int> { 12 };
             //act
             List<int> result = movieReviewManager.GetMostProductiveReviewers();
@@ -159,7 +161,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
+            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
             //Movies sorted efter højest avg rating
             List<int> movieTopList = new List<int> 
             {1356096,2038901,1874239,
@@ -184,7 +186,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
+            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
             List<int> movieTopList = new List<int> {1564770, 87062, 205228, 1251664};
             //act
             List<int> result = movieReviewManager.GetTopMoviesByReviewer(7);
@@ -199,7 +201,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
+            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
             List<int> movieTopList = new List<int> {12,5,4,3,1,6};
             //act
             List<int> result = movieReviewManager.GetReviewersByMovie(94150);
@@ -222,7 +224,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
+            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
 
             //Act && Assert
 
@@ -244,7 +246,7 @@ namespace MovieReviewTest
         public void TestGetAverageRateFromReviewerThrows(int reviewID, Type expected)
         {
             //Arrange
-            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+            MovieReviewManager mm = new MovieReviewManager(json.reviews.ToList());
 
             try
             {
@@ -269,7 +271,7 @@ namespace MovieReviewTest
         public void TestGetNumberOfRatesByReviewerThrows(int reviewID, int rate, Type expected)
         {
             //Arrange
-            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+            MovieReviewManager mm = new MovieReviewManager(json.reviews.ToList());
 
             try
             {
@@ -292,7 +294,7 @@ namespace MovieReviewTest
         public void TestGetNumberOfReviewsThrows(int movieID, Type expected)
         {
             //Arrange
-            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+            MovieReviewManager mm = new MovieReviewManager(json.reviews.ToList());
 
             try
             {
@@ -315,7 +317,7 @@ namespace MovieReviewTest
         public void TestGetAverageRateOfMovieThrows(int movieID, Type expected)
         {
             //Arrange
-            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+            MovieReviewManager mm = new MovieReviewManager(json.reviews.ToList());
 
             try
             {
@@ -338,7 +340,7 @@ namespace MovieReviewTest
         public void TestGetNumberOfRatesThrows(int movieID, int rating, Type expected)
         {
             //Arrange
-            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+            MovieReviewManager mm = new MovieReviewManager(json.reviews.ToList());
 
             try
             {
@@ -361,7 +363,7 @@ namespace MovieReviewTest
         public void TestGetTopRatedMoviesThrowsInvalidInput(int amount, Type expected)
         {
             //Arrange
-            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+            MovieReviewManager mm = new MovieReviewManager(json.reviews.ToList());
 
             try
             {
@@ -383,7 +385,7 @@ namespace MovieReviewTest
         public void TestGetTopMoviesByReviewerThrows(int reviewID, Type expected)
         {
             //Arrange
-            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+            MovieReviewManager mm = new MovieReviewManager(json.reviews.ToList());
 
             try
             {
@@ -406,7 +408,7 @@ namespace MovieReviewTest
         public void TestGetReviewersByMovieThrows(int movieID, Type expected)
         {
             //Arrange
-            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
+            MovieReviewManager mm = new MovieReviewManager(json.reviews.ToList());
 
             try
             {

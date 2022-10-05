@@ -16,8 +16,6 @@ namespace MovieReview
                 throw new NullReferenceException("Missing repository");
             }
             allData = data;
-            JsonReviewRepo json = new JsonReviewRepo("C:/Users/caspe/Downloads/ratings.json");
-            allData = json.reviews;
         }
 
         public int GetNumberOfReviewsFromReviewer(int reviewer)
@@ -90,19 +88,9 @@ namespace MovieReview
 
         public List<int> GetMoviesWithHighestNumberOfTopRates()
         {
-            int i = 0;
             List<int> movies = new List<int>();
             List<Review> sortedList = allData.OrderBy(o => o.grade).ToList();
-            foreach (Review review in sortedList)
-            {
-                i++;
-                Review temp = review;
-                if (temp.movie == sortedList[i].movie)
-                {
-
-                }
-            }
-            return movies;
+            Dictionary<int, int> rateMap = new Dictionary<int, int>();
         }
 
         public List<int> GetMostProductiveReviewers()
