@@ -465,10 +465,12 @@ namespace MovieReviewTest
             review2.reviewDate = new DateTime(2005, 9, 26);
 
             //Assert
-            Assert.True(review1 == repo.reviews[1]);
-            Assert.True(review2 == repo.reviews[5009441]);
-            Console.Write("expected 1: " + repo.reviews[1].reviewer);
-            
+            Assert.True(review1.reviewer == repo.reviews[0].reviewer);
+            Assert.True(review1.movie == repo.reviews[0].movie);
+            Assert.True(review1.grade == repo.reviews[0].movie);
+            Assert.True(review2.reviewer == repo.reviews[5009438].reviewer); 
+            Assert.True(review2.movie == repo.reviews[5009438].movie); 
+            Assert.True(review2.grade == repo.reviews[5009438].reviewer); 
         }
 
     }
