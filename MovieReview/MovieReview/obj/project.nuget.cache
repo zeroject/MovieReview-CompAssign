@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ucLZJ3F2G69oSB4QykpezXUIpsrFKzri4JpB0nqMWo5iKGThtC9h1Hm6/3RaKPhlT6DFIxAiUCccFjG2S3moDQ==",
+  "dgSpecHash": "9prvdAxs+65HVSRmM3hgRlDcploBaSloAo8Ag74R91oL0F3jajii7Lptek+5nusdjskSGzv3RT+kvsRkDl19gA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kaspe\\Desktop\\sims\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\kaspe\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\caspe\\Desktop\\Skole\\3rd Semester\\SDM\\MovieReview-CompAssign\\MovieReview\\MovieReview\\MovieReview.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
