@@ -1,13 +1,14 @@
-﻿using MovieReview.Interface;
+﻿using MovieReview.Entities;
+using MovieReview.Interface;
 
 namespace MovieReview
 {
     public class MovieReviewManager : IMovieReviewManager
     {
 
-        private List<object> allData;
+        private List<Review> allData;
 
-        public MovieReviewManager(List<object> data)
+        public MovieReviewManager(List<Review> data)
         {
             if (data == null)
             {
@@ -18,37 +19,87 @@ namespace MovieReview
 
         public int GetNumberOfReviewsFromReviewer(int reviewer)
         {
-            throw new NotImplementedException();
+            int reviews = 0;
+            foreach (Review review in allData)
+            {
+                _ = review.reviewer == reviewer ? reviews++ : reviews + 0;
+            }
+
+            return reviews;
         }
 
         public double GetAverageRateFromReviewer(int reviewer)
         {
-            throw new NotImplementedException();
+            int reviews = 0;
+            double averageRate = 0;
+            foreach (Review review in allData)
+            {
+                _ = review.reviewer == reviewer ? reviews++ : reviews + 0;
+                _ = review.reviewer == reviewer ? averageRate = averageRate + review.grade : reviews + 0;
+            }
+            averageRate = averageRate / reviews;
+            return averageRate;
         }
 
         public int GetNumberOfRatesByReviewer(int reviewer, int rate)
         {
-            throw new NotImplementedException();
+            int rates = 0;
+            foreach (Review review in allData)
+            {
+                _ = review.reviewer == reviewer && review.grade == rate ? rates++ : rates + 0;
+            }
+            return rates;
         }
 
         public int GetNumberOfReviews(int movie)
         {
-            throw new NotImplementedException();
+            int reviews = 0;
+            foreach (Review review in allData)
+            {
+                _ = review.movie == movie ? reviews++ : reviews + 0;
+            }
+
+            return reviews;
         }
 
         public double GetAverageRateOfMovie(int movie)
         {
-            throw new NotImplementedException();
+            int reviews = 0;
+            double averageRate = 0;
+            foreach (Review review in allData)
+            {
+                _ = review.movie == movie ? reviews++ : reviews + 0;
+                _ = review.movie == movie ? averageRate = averageRate + review.grade : reviews + 0;
+            }
+            averageRate = averageRate / reviews;
+            return Math.Truncate(averageRate * 100) / 100;
         }
 
         public int GetNumberOfRates(int movie, int rate)
         {
-            throw new NotImplementedException();
+            int rates = 0;
+            foreach (Review review in allData)
+            {
+                _ = review.movie == movie && review.grade == rate ? rates++ : rates + 0;
+            }
+            return rates;
         }
 
         public List<int> GetMoviesWithHighestNumberOfTopRates()
         {
-            throw new NotImplementedException();
+            int i = 0;
+            List<int> movies = new List<int>();
+            List<Review> sortedList = allData.OrderBy(o => o.grade).ToList();
+            foreach (Review review in sortedList)
+            {
+                i++;
+                Review temp = review;
+                if (temp.movie == sortedList[i].movie)
+                {
+
+                }
+            }
+            return movies;
         }
 
         public List<int> GetMostProductiveReviewers()
