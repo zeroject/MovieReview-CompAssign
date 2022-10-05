@@ -467,10 +467,12 @@ namespace MovieReviewTest
             //Assert
             Assert.True(review1.reviewer == repo.reviews[0].reviewer);
             Assert.True(review1.movie == repo.reviews[0].movie);
-            Assert.True(review1.grade == repo.reviews[0].movie);
+            Assert.True(review1.grade == repo.reviews[0].grade);
+            Assert.True(review1.reviewDate == repo.reviews[0].reviewDate);
             Assert.True(review2.reviewer == repo.reviews[5009438].reviewer); 
             Assert.True(review2.movie == repo.reviews[5009438].movie); 
-            Assert.True(review2.grade == repo.reviews[5009438].reviewer); 
+            Assert.True(review2.grade == repo.reviews[5009438].grade); 
+            Assert.True(review2.reviewDate == repo.reviews[5009438].reviewDate); 
         }
 
     }
