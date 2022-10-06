@@ -39,7 +39,7 @@ namespace MovieReview
                 _ = review.reviewer == reviewer ? averageRate = averageRate + review.grade : reviews + 0;
             }
             averageRate = averageRate / reviews;
-            return averageRate;
+            return Math.Truncate(averageRate * 100) / 100;
         }
 
         public int GetNumberOfRatesByReviewer(int reviewer, int rate)
@@ -90,6 +90,8 @@ namespace MovieReview
         {
             List<Review> sortedList = allData.OrderBy(o => o.grade).ToList();
             Dictionary<int, int> rateMap = new Dictionary<int, int>();
+            int[] filter;
+            List<int> result = new List<int>();
             foreach (Review item in sortedList)
             {
                 if (item.grade == 5 && !rateMap.ContainsKey(item.movie))
@@ -100,8 +102,17 @@ namespace MovieReview
                     rateMap[item.movie]++;
                 }
             }
-            rateMap.OrderBy(o => o.Value);
-            return rateMap.Select(o => o.Key).ToList();
+            var items = from pair in rateMap orderby pair.Value descending select pair.Key;
+
+            filter = items.ToArray();
+            if (filter[0] == filter[1])
+            {
+                result.Add(filter[0]);
+                result.Add(filter[1]);
+                return result;
+            }
+            else { result.Add(filter[0]); }
+            return result;
         }
 
         public List<int> GetMostProductiveReviewers()
@@ -120,9 +131,9 @@ namespace MovieReview
                     rateMap[item.reviewer]++;
                 }
             }
-            rateMap.OrderBy(o => o.Value);
+            var items = from pair in rateMap orderby pair.Value descending select pair.Key;
             
-            filter = rateMap.Select(o => o.Key).ToArray();
+            filter = items.ToArray();
             if (filter[0] == filter[1])
             {
                 result.Add(filter[0]);
@@ -138,50 +149,77 @@ namespace MovieReview
             List<int> temp = new List<int>();
             List<Review> sortedList = allData.OrderBy(o => o.grade).ToList();
             Dictionary<int, int> rateMap = new Dictionary<int, int>();
+            List<int> movieList = new List<int>();
             foreach (Review item in sortedList)
             {
-                if (item.grade == 5 && !rateMap.ContainsKey(item.movie))
+                if (!movieList.Contains(item.movie))
                 {
-                    rateMap.Add(item.movie, 1);
+                    movieList.Add(item.movie);
                 }
-                else if (item.grade == 5)
-                {
-                    rateMap[item.movie]++;
-                }
+            
             }
-            rateMap.OrderBy(o => o.Value);
-            temp = rateMap.Select(o => o.Key).ToList();
-            return temp.GetRange(0, amount);
+            foreach (int movie in movieList)
+            {
+                int i = 0;
+                int sum = 0;
+                foreach (Review item in sortedList)
+                {
+                    if(item.movie == movie)
+                    {
+                        sum += item.grade;
+                        i++;
+                    } 
+                }
+                rateMap.Add(movie, sum / i);
+            }
+            var items = from pair in rateMap orderby pair.Value descending select pair.Key;
+            return items.ToList().GetRange(0, amount);
         }
 
         public List<int> GetTopMoviesByReviewer(int reviewer)
         {
             List<Review> sortedList = allData.OrderBy(o => o.grade).ToList();
-            Dictionary<int, int> rateMap = new Dictionary<int, int>();
-            foreach (Review item in sortedList)
+            List<Review> movieList = new List<Review>();
+            List<int> result = new List<int>();
+            foreach (Review i in sortedList)
             {
-                if (item.reviewer == reviewer)
+                if (i.reviewer == reviewer)
                 {
-                    rateMap.Add(item.movie, item.grade);
+                    movieList.Add(i);
                 }
             }
-            rateMap.OrderBy(o => o.Value);
-            return rateMap.Select(o => o.Key).ToList();
+            movieList.OrderBy(o => o.grade).ThenBy(o => o.reviewDate);
+            foreach (Review i in movieList)
+            {
+                result.Add(i.movie);
+            }
+            List<int> reverse = Enumerable.Reverse(result).ToList();
+            return reverse;
         }
 
         public List<int> GetReviewersByMovie(int movie)
         {
             List<Review> sortedList = allData.OrderBy(o => o.grade).ToList();
-            Dictionary<int, int> rateMap = new Dictionary<int, int>();
+            List<Review> reviewers = new List<Review>();
+            List<int> result = new List<int>();
             foreach (Review item in sortedList)
             {
                 if (item.movie == movie)
                 {
-                    rateMap.Add(item.reviewer, item.grade);
+                    reviewers.Add(item);
                 }
             }
-            rateMap.OrderBy(o => o.Value);
-            return rateMap.Select(o => o.Key).ToList();
+            reviewers.OrderBy(o => o.grade).ThenBy(o => o.reviewDate);
+            List<Review> prereverse = Enumerable.Reverse(reviewers).ToList();
+            foreach (Review i in prereverse)
+            {
+                if (!result.Contains(i.reviewer)) 
+                {
+                    result.Add(i.reviewer);
+                }
+                
+            }
+            return result;
         }
     }
 }

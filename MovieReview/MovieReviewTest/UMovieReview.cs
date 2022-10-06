@@ -10,7 +10,7 @@ namespace MovieReviewTest
     public class UMovieReview
     {
         // remember to get proper file path. indepent from each user when testing.
-        public static JsonReviewRepo json = new JsonReviewRepo("C:\\Users\\kaspe\\Desktop\\sims\\MovieReview-CompAssign\\JSON\\ratings.json");
+        public static JsonReviewRepo json = new JsonReviewRepo("C:\\Users\\Magnus\\Documents\\GitHub\\MovieReview-CompAssign\\JSON\\ratings.json");
 
         // Test 1
         [Theory]
@@ -31,7 +31,7 @@ namespace MovieReviewTest
 
         // Test 2
         [Theory]
-        [InlineData(1, 3.75)]
+        [InlineData(1, 3.74)]
         [InlineData(2, 3.55)]
         [InlineData(7, 2.12)]
         public void TestGetAverageRateFromReviewer(int reviewer, double expected)
@@ -124,18 +124,13 @@ namespace MovieReviewTest
             //Arrange
             int d = 0;
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
-            List<int> movieTopList = new List<int> { 8309, 94150, 852327, 1356096 };
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
+            List<int> movieTopList = new List<int> {94150};
             //act
             List<int> result = movieReviewManager.GetMoviesWithHighestNumberOfTopRates();
-            foreach (int i in result)
-            {
-                if (i.Equals(movieTopList[i]))
-                {
-                    d++;
-                }
-            }
-            Assert.Equal(4, d);
+
+            //Assert
+            Assert.Equal(movieTopList, result);
         }
         //Test 8
         [Fact]
@@ -145,12 +140,13 @@ namespace MovieReviewTest
             IMovieReviewManager movieReviewManager;
             movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
             List<int> reviewerTopList = new List<int> { 12 };
+
             //act
             List<int> result = movieReviewManager.GetMostProductiveReviewers();
-            foreach (int i in result)
-            {
-                Assert.Equal(reviewerTopList[i], i);
-            }
+            
+            //Assert
+            Assert.Equal(reviewerTopList, result);
+            
         }
         //Test 9
         [Theory]
@@ -176,10 +172,9 @@ namespace MovieReviewTest
             //act
             List<int> expected = movieTopList.GetRange(0, amount);
             List<int> result = movieReviewManager.GetTopRatedMovies(amount);
-            foreach (int i in result)
-            {
-                Assert.Equal(expected[i], i);
-            }
+
+            //Assert
+            Assert.Equal(expected, result);
         }
         //Test 10
         [Fact]
@@ -191,10 +186,10 @@ namespace MovieReviewTest
             List<int> movieTopList = new List<int> {1564770, 87062, 205228, 1251664};
             //act
             List<int> result = movieReviewManager.GetTopMoviesByReviewer(7);
-            foreach (int i in result)
-            {
-                Assert.Equal(movieTopList[i], i);
-            }
+            
+            
+            Assert.Equal(movieTopList, result);
+            
         }
         //Test 11
         [Fact]
@@ -204,12 +199,13 @@ namespace MovieReviewTest
             IMovieReviewManager movieReviewManager;
             movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
             List<int> movieTopList = new List<int> {12,5,4,3,1,6};
+
             //act
             List<int> result = movieReviewManager.GetReviewersByMovie(94150);
-            foreach (int i in result)
-            {
-                Assert.Equal(movieTopList[i], i);
-            }
+            
+            //Assert
+            Assert.Equal(movieTopList, result);
+            
         }
 
         /// <summary>
@@ -357,14 +353,14 @@ namespace MovieReviewTest
         }
 
         [Theory]
-        [InlineData(-1, typeof(ArgumentException))]
+        [InlineData(-1, typeof(ArgumentOutOfRangeException))]
         [InlineData(null, typeof(NullException))]
         [InlineData(int.MaxValue, typeof(ArgumentException))]
         // Test 9.1
         public void TestGetTopRatedMoviesThrowsInvalidInput(int amount, Type expected)
         {
             //Arrange
-            MovieReviewManager mm = new MovieReviewManager(json.reviews.ToList());
+            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
 
             try
             {
