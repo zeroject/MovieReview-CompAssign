@@ -10,7 +10,7 @@ namespace MovieReviewTest
     public class UMovieReview
     {
         // remember to get proper file path. indepent from each user when testing.
-        public static JsonReviewRepo json = new JsonReviewRepo("C:\\Users\\Magnus\\Documents\\GitHub\\MovieReview-CompAssign\\JSON\\ratings.json");
+        public static JsonReviewRepo json = new JsonReviewRepo("Your filepath to jason repos");
 
         // Test 1
         [Theory]
