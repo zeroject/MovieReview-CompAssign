@@ -10,7 +10,7 @@ namespace MovieReviewTest
     public class UMovieReview
     {
         // remember to get proper file path. indepent from each user when testing.
-        public static JsonReviewRepo json = new JsonReviewRepo("C:/Users/caspe/Downloads/ratings.json");
+        public static JsonReviewRepo json = new JsonReviewRepo("C:\\Users\\kaspe\\Desktop\\sims\\MovieReview-CompAssign\\JSON\\ratings.json");
 
         // Test 1
         [Theory]

@@ -107,6 +107,8 @@ namespace MovieReview
         public List<int> GetMostProductiveReviewers()
         {
             Dictionary<int, int> rateMap = new Dictionary<int, int>();
+            int[] filter;
+            List<int> result = new List<int>();
             foreach (Review item in allData)
             {
                 if (!rateMap.ContainsKey(item.reviewer))
@@ -119,7 +121,16 @@ namespace MovieReview
                 }
             }
             rateMap.OrderBy(o => o.Value);
-            return rateMap.Select(o => o.Key).ToList();
+            
+            filter = rateMap.Select(o => o.Key).ToArray();
+            if (filter[0] == filter[1])
+            {
+                result.Add(filter[0]);
+                result.Add(filter[1]);
+                return result;
+            }
+            else { result.Add(filter[0]); }
+            return result;
         }
 
         public List<int> GetTopRatedMovies(int amount)
