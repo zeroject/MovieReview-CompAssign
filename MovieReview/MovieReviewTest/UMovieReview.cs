@@ -32,9 +32,8 @@ namespace MovieReviewTest
         // Test 2
         [Theory]
         [InlineData(1, 3.75)]
-        [InlineData(2, 3.25)]
-        [InlineData(3, 3.00)]
-        [InlineData(4, 3.25)]
+        [InlineData(2, 3.55)]
+        [InlineData(7, 2.12)]
         public void TestGetAverageRateFromReviewer(int reviewer, double expected)
         {
             //Arrange
