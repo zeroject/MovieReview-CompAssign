@@ -9,12 +9,13 @@ namespace MovieReviewTest
 {
     public class UMovieReview
     {
+        // remember to get proper file path. indepent from each user when testing.
         public static JsonReviewRepo json = new JsonReviewRepo("C:/Users/caspe/Downloads/ratings.json");
 
         // Test 1
         [Theory]
-        [InlineData(1, 4)]
-        [InlineData(12, 5)]
+        [InlineData(1, 547)]
+        [InlineData(591, 514)]
         public void TestGetNumberOfReviewsFromReviewer(int reviewID, int result)
         {
             //Arrange
@@ -48,9 +49,9 @@ namespace MovieReviewTest
 
         // Test 3
         [Theory]
-        [InlineData(1, 4, 2)]
-        [InlineData(5, 5, 2)]
-        [InlineData(7, 1, 0)]
+        [InlineData(1, 4, 207)]
+        [InlineData(5, 5, 504)]
+        [InlineData(7, 1, 32)]
         public void TestGetNumberOfRatesByReviewer(int reviewer, int rate, int expected)
         {
             //Arrange
@@ -67,7 +68,8 @@ namespace MovieReviewTest
         // Test 4
         [Theory]
         [InlineData(852327, 7)]
-        [InlineData(205228, 8)]
+        [InlineData(205228, 0)]
+        [InlineData(2584676, 190)]
         public void TestGetNumberOfReviews(int movie, int expected)
         {
             //Arrange
@@ -90,7 +92,7 @@ namespace MovieReviewTest
         public void TestGetAverageRateOfMovie(int movie, double expected)
         {
             //Arrange
-            var movieReviewManager = new MovieReviewManager(json.reviews.ToList());
+            var movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
 
             //Act
             double averageData = movieReviewManager.GetAverageRateOfMovie(movie);
@@ -101,8 +103,8 @@ namespace MovieReviewTest
 
         // Test 6
         [Theory]
-        [InlineData(205228, 4, 4)]
-        [InlineData(1555901, 5, 0)]
+        [InlineData(205228, 4, 0)]
+        [InlineData(1555901, 5, 8)]
         public void TestGetNumberOfRates(int movie, int rate, int expected)
         {
             //Arrange
@@ -142,7 +144,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
             List<int> reviewerTopList = new List<int> { 12 };
             //act
             List<int> result = movieReviewManager.GetMostProductiveReviewers();
@@ -161,7 +163,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
             //Movies sorted efter højest avg rating
             List<int> movieTopList = new List<int> 
             {1356096,2038901,1874239,
@@ -186,7 +188,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
             List<int> movieTopList = new List<int> {1564770, 87062, 205228, 1251664};
             //act
             List<int> result = movieReviewManager.GetTopMoviesByReviewer(7);
@@ -201,7 +203,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
             List<int> movieTopList = new List<int> {12,5,4,3,1,6};
             //act
             List<int> result = movieReviewManager.GetReviewersByMovie(94150);
@@ -224,7 +226,7 @@ namespace MovieReviewTest
         {
             //Arrange
             IMovieReviewManager movieReviewManager;
-            movieReviewManager = new MovieReviewManager(json.reviews.ToList());
+            movieReviewManager = new MovieReviewManager(Data.MockData.GetData());
 
             //Act && Assert
 
@@ -246,7 +248,7 @@ namespace MovieReviewTest
         public void TestGetAverageRateFromReviewerThrows(int reviewID, Type expected)
         {
             //Arrange
-            MovieReviewManager mm = new MovieReviewManager(json.reviews.ToList());
+            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
 
             try
             {
@@ -271,7 +273,7 @@ namespace MovieReviewTest
         public void TestGetNumberOfRatesByReviewerThrows(int reviewID, int rate, Type expected)
         {
             //Arrange
-            MovieReviewManager mm = new MovieReviewManager(json.reviews.ToList());
+            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
 
             try
             {
@@ -294,7 +296,7 @@ namespace MovieReviewTest
         public void TestGetNumberOfReviewsThrows(int movieID, Type expected)
         {
             //Arrange
-            MovieReviewManager mm = new MovieReviewManager(json.reviews.ToList());
+            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
 
             try
             {
@@ -385,7 +387,7 @@ namespace MovieReviewTest
         public void TestGetTopMoviesByReviewerThrows(int reviewID, Type expected)
         {
             //Arrange
-            MovieReviewManager mm = new MovieReviewManager(json.reviews.ToList());
+            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
 
             try
             {
@@ -408,7 +410,7 @@ namespace MovieReviewTest
         public void TestGetReviewersByMovieThrows(int movieID, Type expected)
         {
             //Arrange
-            MovieReviewManager mm = new MovieReviewManager(json.reviews.ToList());
+            MovieReviewManager mm = new MovieReviewManager(Data.MockData.GetData());
 
             try
             {
@@ -450,8 +452,8 @@ namespace MovieReviewTest
             //Arrange
             JsonReviewRepo repo;
 
-            // remember to get proper file path. indepent from each user when testing.
-            repo = new JsonReviewRepo("C:\\Users\\kaspe\\Desktop\\sims\\MovieReview-CompAssign\\MovieReview\\MovieReview\\ratings.json");
+            
+            repo = json;
             Review review1 = new Review();
             Review review2 = new Review();
 
